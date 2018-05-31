@@ -88,6 +88,7 @@ header prefix = "<div id=\"header\">\n"
                 ++ link headerStyle (prefix ++ "languages/dapiica") "Dapiica"
                 ++ link headerStyle (prefix ++ "doctor-who") "Doctor Who Guide"
                 ++ link headerStyle (prefix ++ "about") "About"
+                ++ link headerStyle (prefix ++ "log") "Log"
                 ++ "</div></div>\n"
   where headerStyle = "headerlink"
 
