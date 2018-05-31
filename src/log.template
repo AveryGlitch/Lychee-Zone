@@ -1,0 +1,17 @@
+<div class="log">
+$if(title)$
+<h2 class="log-title">$title$</h2>
+$if(subtitle)$
+<p class="log-subtitle">$subtitle$</p>
+$endif$
+$if(date)$
+<span class="log-date">$date$</span> –
+$endif$
+$for(author)$
+<span class="log-author">$author$</span>
+$endfor$
+$endif$
+<div class="log-body">
+$body$
+</div>
+</div>

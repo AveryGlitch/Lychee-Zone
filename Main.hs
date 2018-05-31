@@ -16,7 +16,7 @@ headerGeneric = "src/header.html"
 main :: IO ()
 main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
 
-  want (indexes ["", "about", "languages/dapiica", "doctor-who"])
+  want (indexes ["", "about", "languages/dapiica", "doctor-who", "log"])
   want ["_site/style.css"]
   want ["_site/doctor-who/style.css"]
 
@@ -35,6 +35,7 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
         _
           -> do let src = case getMiddle out of
                             "" -> "src/index.md"
+                            "log" -> "_build/logfile.html"
                             name -> "src" </> name <.> "md"
                 let navbar = "_build" </> getMiddle out </> "header.html"
                 let css = generatePrefix (takeDirectory out) ++ "style.css"
@@ -55,6 +56,20 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
       let css = "src/dw/style.css"
       copyFile' css out
 
+  "_build/logfile.html" %> \out -> do
+      logs <- getDirectoryFiles "src/log" ["//*.md"]
+      let builtLogs = map (\log -> "_build/log/" ++ (log -<.> "html")) logs
+      need builtLogs
+      cmd_ "pandoc --standalone --metadata=title:Log -o" out (reverse builtLogs)
+      -- cmd_ "pandoc --file-scope --template" [template] "-o" [out] logs
+
+  (\filepath -> (contains "_build/log" filepath) && (not $ contains "header" filepath)) ?> \out -> do
+      let src = "src" </> dropDirectory1 out -<.> "md"
+      let template = "src/log.template"
+      let date = dropExtension $ takeBaseName out
+      need [src, template]
+      cmd_ "pandoc --template" [template] "-o" [out] ("--metadata=date:" ++ date) src
+
 
 
 getMiddle :: FilePath -> FilePath
@@ -69,7 +84,22 @@ generatePrefix s = generatePrefix' (countLayers s)
 
 header prefix = "<div id=\"header\">\n"
                 ++ "<div id=navigation>\n"
-                ++ "<a href=\"" ++ prefix ++ "\">Home</a>\n"
-                ++ "<a href=\"" ++ prefix ++ "languages/dapiica\">Dapiica</a>\n"
-                ++ "<a href=\"" ++ prefix ++ "about\">About</a>\n"
+                ++ link headerStyle (prefix) "Home"
+                ++ link headerStyle (prefix ++ "languages/dapiica") "Dapiica"
+                ++ link headerStyle (prefix ++ "doctor-who") "Doctor Who Guide"
+                ++ link headerStyle (prefix ++ "about") "About"
                 ++ "</div></div>\n"
+  where headerStyle = "headerlink"
+
+
+link style url name = "<a class=\"" ++ style ++ "\" href=\"" ++ url ++ "\">" ++ name ++ "</a>"
+
+contains (x:xs) [] = False
+contains xs ys
+  | prefix xs ys = True
+  | contains xs (tail ys) = True
+  | otherwise = False
+  where
+    prefix []     ys     = True
+    prefix (x:xs) []     = False
+    prefix (x:xs) (y:ys) = (x == y) && prefix xs ys
