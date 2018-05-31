@@ -1,3 +1,5 @@
 .cabal-sandbox
 _build
 dist
+_site
+src/dw
