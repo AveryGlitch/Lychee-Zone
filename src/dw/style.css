@@ -1,0 +1,126 @@
+body {
+    background-color: AntiqueWhite;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.name-missing {
+    font-weight: bold;
+    font-style: italic;
+}
+th {
+	  background-color: dimgray;
+    color: white;
+}
+
+table, tr, td {
+    border: none;
+    border-collapse: collapse;
+    padding: 5px;
+    margin: 1%;
+}
+
+.invisible {
+    background-color: AntiqueWhite;
+    border-bottom: 1px dotted black;
+    border-top: 1px dotted black;
+}
+
+.maintable {
+    min-width: 100px;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #E8E8E8;
+}
+
+tr:nth-child(even) {
+    background-color: #C0C0C0;
+}
+
+tr.info {
+    background-color: white;
+    font-size: x-small;
+}
+
+
+
+table.details {
+    border: none;
+}
+tr.details {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+td.details {
+    border: none;
+}
+
+tr.season {
+    background-color: aliceblue;
+    border-top: 2px solid black;
+}
+
+tr.intro {
+    background-color: white;
+}
+
+td.details-tag {
+    font-size: small;
+}
+
+td.details-text {
+    font-size: small;
+    font-style: italic;
+}
+
+div {
+    border-radius: 3px;
+    padding: 2px;
+    font-weight: normal;
+}
+
+.No {
+    background-color: #E0C0C0;
+}
+.Partial {
+    background-color: #ffffc0;
+}
+.Maybe
+{
+    background-color: #ffc0ff;
+}
+.Yes
+{
+    background-color: #c0c0ff;
+}
+.Highly
+{
+    background-color: #c0ffff;
+}
+
+
+hr {
+    border-top: 3px double #8c8b8b;
+}
+
+.dimbox {
+    background-color: Bisque;
+    border: 1px dotted grey;
+    padding: 5px;
+    margin: 5%;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5%;
+    float: right;
+}
+
+h1 {
+    display: inline-block;
+}
