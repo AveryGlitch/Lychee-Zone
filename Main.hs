@@ -8,10 +8,6 @@ import Development.Shake.Util
 indexes :: [FilePath] -> [FilePath]
 indexes = map (\file -> "_site" </> file </> "index.html")
 
-headerGeneric :: FilePath
-headerGeneric = "src/header.html"
-
-
 
 main :: IO ()
 main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
@@ -19,6 +15,7 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
   want (indexes ["", "about", "languages/dapiica", "doctor-who", "log"])
   want ["_site/style.css"]
   want ["_site/doctor-who/style.css"]
+  want ["_site/images/marker"]
 
   phony "clean" $ do
       putNormal "Cleaning files from _site and _build"
@@ -28,9 +25,10 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
   "//*index.html" %> \out -> do
       case out of
         "_site/doctor-who/index.html"
-          -> do let db = "src/dw/DrWhoDB"
-                need [db]
-                cmd_ "mkdir -p" (takeDirectory out)
+          -> do let db   = "src/dw/DrWhoDB"
+                let code = "src/dw/DrWho.hs"
+                need [db, code]
+                mkdir (takeDirectory out)
                 command_ [Cwd "src/dw"] "runhaskell" ["DrWho.hs", "output", "../../" ++ out]
         _
           -> do let src = case getMiddle out of
@@ -40,12 +38,12 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
                 let navbar = "_build" </> getMiddle out </> "header.html"
                 let css = generatePrefix (takeDirectory out) ++ "style.css"
                 need [src, navbar]
-                cmd_ "mkdir -p" (takeDirectory out)
+                mkdir (takeDirectory out)
                 cmd_ "pandoc --standalone -B" [navbar] "--css" [css] "-o" [out] [src]
 
   "//*header.html" %> \out -> do
       let prefix = generatePrefix (takeDirectory out)
-      cmd_ "mkdir -p" (takeDirectory out)
+      mkdir (takeDirectory out)
       writeFile' out (header prefix)
 
   "_site/style.css" %> \out -> do
@@ -62,6 +60,12 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
       need builtLogs
       cmd_ "pandoc --standalone --metadata=title:Log -o" out (reverse builtLogs)
       -- cmd_ "pandoc --file-scope --template" [template] "-o" [out] logs
+
+  "_site/images/marker" %> \out -> do
+      mkdir (takeDirectory out)
+      images <- getDirectoryFiles "src/images" ["//*"]
+      mapM_ (\img -> copyFile' ("src/images" </> img) (takeDirectory out </> img)) images
+      writeFile' out markerText
 
   (\filepath -> (contains "_build/log" filepath) && (not $ contains "header" filepath)) ?> \out -> do
       let src = "src" </> dropDirectory1 out -<.> "md"
@@ -104,3 +108,8 @@ contains xs ys
     prefix []     ys     = True
     prefix (x:xs) []     = False
     prefix (x:xs) (y:ys) = (x == y) && prefix xs ys
+
+
+mkdir = cmd_ "mkdir -p"
+
+markerText = "This file only exists to satisfy the build system"

@@ -107,7 +107,7 @@ output table = preamble +. introduction +. output' table +. outro +. postamble
   where
     output' [] = ""
     output' (Doctor n seasons : rest)
-      = h1 (ordinal n ++ " Doctor") ++ img ("doctor" ++ show n ++ ".png") ("The " ++ ordinal n ++ " Doctor")
+      = h1 (ordinal n ++ " Doctor") ++ img ("../images/doctor-who/doctor" ++ show n ++ ".png") ("The " ++ ordinal n ++ " Doctor")
       +. tableHeading +. concatMap outputSeason seasons +. "</table>"
       +. output' rest
 

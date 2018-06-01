@@ -67,6 +67,73 @@ div.log-body {
     margin-left: 10px;
 }
 
+span.lychee {
+    background-color: MediumVioletRed;
+    color: Bisque;
+    padding: 1px;
+}
+
+span.lychee:hover {
+    color: MediumVioletRed;
+    background-color: Bisque;
+    padding: 1px;
+}
+
+.real-info {
+    padding: 1px;
+    /* background-color: rgba(0,0,0,0.1); */
+    /* border-top: 2px solid MediumVioletRed; */
+    /* border-bottom: 2px solid MediumVioletRed; */
+    background-color: MediumVioletRed;
+    color: Bisque;
+}
+
+.real-info:hover {
+    color: MediumVioletRed;
+    background-color: Bisque;
+    padding: 1px;
+    /* border-top: 2px solid FloralWhite; */
+    /* border-bottom: 2px solid FloralWhite; */
+    /* background-color: rgba(0,0,0,0.2); */
+}
+
+blockquote {
+    margin-left: 20px;
+    background-color: rgba(255,255,255,0.3);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px;
+    line-height: 22px;
+    text-indent: 2em;
+}
+
+blockquote p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.avery-speech {
+    color: Bisque;
+}
+
+/* [type=checkbox] { */
+/*     display: none; */
+/* } */
+
+/* :checked + div { */
+/*     transition: display 0.1s; */
+/*     display: block !important; */
+/* } */
+
+/* div.hideable { */
+/*     display: none; */
+/*     transition: display 0.1s; */
+/* } */
+
+/* div.continue { */
+/*     font-weight: bold; */
+/* } */
+
 /* @import "base.css"; */
 
 /* /\* colors from paletton.com: triad, base RGB AA3939 *\/ */

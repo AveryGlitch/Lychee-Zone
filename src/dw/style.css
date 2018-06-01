@@ -2,11 +2,11 @@ body {
     background-color: AntiqueWhite;
 }
 
-.name {
+p.name {
     font-weight: bold;
 }
 
-.name-missing {
+p.name-missing {
     font-weight: bold;
     font-style: italic;
 }
@@ -84,18 +84,18 @@ div {
 }
 
 .No {
-    background-color: #E0C0C0;
+    background-color: #cd9898;
 }
 .Partial {
     background-color: #ffffc0;
 }
 .Maybe
 {
-    background-color: #ffc0ff;
+    background-color: #ff99ff;
 }
 .Yes
 {
-    background-color: #c0c0ff;
+    background-color: #ccccff;
 }
 .Highly
 {
