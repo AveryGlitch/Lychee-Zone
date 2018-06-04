@@ -1,6 +1,6 @@
 
 div#header {
-    margin: 1%;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
@@ -10,7 +10,8 @@ div#header #navigation {
 }
 
 div#header #navigation a {
-    margin: 20px;
+    margin-right: 2%;
+    margin-left: 2%;
     padding: 5px;
     border: 3px double black;
     background-color: Thistle;
@@ -23,8 +24,25 @@ div#header #navigation a:hover {
     background-color: Teal;
 }
 
+blockquote a:hover {
+    color: Thistle;
+    background-color: Teal;
+}
+
+blockquote a {
+    padding-left: 1px;
+    padding-right: 1px;
+    border-radius: 3px;
+    color: Teal;
+    background-color: rgba(216, 191, 216, 0.5);
+}
+
 body {
     background-color: DarkOrchid; /* VioletRed */
+}
+
+p {
+    color: LightGoldenRodYellow; /* MistyRose; -> LightYellow; -> LightGoldenRodYellow; LightCyan; LemonChiffon; Ivory; -> HoneyDew; GreenYellow; Gold; -> GhostWhite; Gainsboro; FloralWhite; DarkTurquoise; /* Aquamarine;  -> Cornsilk;*/
 }
 
 h1 {
@@ -67,19 +85,11 @@ div.log-body {
     margin-left: 10px;
 }
 
-span.lychee {
-    background-color: MediumVioletRed;
-    color: Bisque;
-    padding: 1px;
+div.log-body p {
+    color: black;
 }
 
-span.lychee:hover {
-    color: MediumVioletRed;
-    background-color: Bisque;
-    padding: 1px;
-}
-
-.real-info {
+.lychee {
     padding: 1px;
     /* background-color: rgba(0,0,0,0.1); */
     /* border-top: 2px solid MediumVioletRed; */
@@ -88,7 +98,7 @@ span.lychee:hover {
     color: Bisque;
 }
 
-.real-info:hover {
+.lychee:hover {
     color: MediumVioletRed;
     background-color: Bisque;
     padding: 1px;
@@ -104,16 +114,54 @@ blockquote {
     margin-bottom: 0;
     padding: 10px;
     line-height: 22px;
-    text-indent: 2em;
 }
 
 blockquote p {
     margin-top: 0px;
     margin-bottom: 0px;
+    text-indent: 2em;
+    color: black;
+}
+
+blockquote li, blockquote ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 15px;
 }
 
 .avery-speech {
     color: Bisque;
+}
+
+/* hr.heart { */
+/*     border-width: 1px double; */
+/*     text-align: center; */
+/* } */
+
+/* hr.heart:after { */
+/*     content: '\002665'; */
+/*     display: inline-block; */
+/*     position: relative; */
+/*     padding: 0 10px; */
+/*     background: DarkOrchid; */
+/*     color: Bisque; */
+/*     font-size: 18px; */
+/* } */
+
+div.heart {
+    text-align: center;
+    height: 9px;
+    border-bottom: 3px double Black;
+}
+
+div.heart:after {
+    content: '\002665';
+    display: inline-block;
+    position: relative;
+    padding: 0 7px;
+    background: DarkOrchid;
+    color: Black;
+    font-size: 18px;
 }
 
 /* [type=checkbox] { */

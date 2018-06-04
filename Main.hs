@@ -12,10 +12,12 @@ indexes = map (\file -> "_site" </> file </> "index.html")
 main :: IO ()
 main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
 
-  want (indexes ["", "about", "languages/dapiica", "doctor-who", "log"])
+  want (indexes ["", "about", "languages/dapiica", "languages/tava", "doctor-who", "log"])
   want ["_site/style.css"]
+  want ["_site/dapiica.css"]
   want ["_site/doctor-who/style.css"]
   want ["_site/images/marker"]
+  want ["_site/archive-2017.zip"]
 
   phony "clean" $ do
       putNormal "Cleaning files from _site and _build"
@@ -36,7 +38,15 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
                             "log" -> "_build/logfile.html"
                             name -> "src" </> name <.> "md"
                 let navbar = "_build" </> getMiddle out </> "header.html"
-                let css = generatePrefix (takeDirectory out) ++ "style.css"
+                let css = generatePrefix (takeDirectory out)
+                          ++ if contains "languages/dapiica" (getMiddle out)
+                             then "dapiica.css" else "style.css"
+                dirExists <- doesDirectoryExist ("src" </> getMiddle out)
+                (if dirExists
+                  then do files <- getDirectoryFiles ("src" </> getMiddle out) ["//*md"]
+                          let buildnames = map (\file -> "_site" </> getMiddle out </> dropExtension file </> "index.html") files
+                          need buildnames
+                  else pure ())
                 need [src, navbar]
                 mkdir (takeDirectory out)
                 cmd_ "pandoc --standalone -B" [navbar] "--css" [css] "-o" [out] [src]
@@ -50,9 +60,17 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
       let css = "src/style.css"
       copyFile' css out
 
+  "_site/dapiica.css" %> \out -> do
+      let css = "src/dapiica.css"
+      copyFile' css out
+
   "_site/doctor-who/style.css" %> \out -> do
       let css = "src/dw/style.css"
       copyFile' css out
+
+  "_site/archive-2017.zip" %> \out -> do
+      let zip = "src/archive-2017.zip"
+      copyFile' zip out
 
   "_build/logfile.html" %> \out -> do
       logs <- getDirectoryFiles "src/log" ["//*.md"]
