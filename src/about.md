@@ -27,3 +27,10 @@ title: About
 > and over their journeys they became a 
 > <span class="lychee" title="a storyteller">teller of stories</span>.
 
+<br>
+<div class="heart" />
+<div />
+<br>
+
+> This site is dedicated to Natalie "tipsytentacle" Nguyen and Lydia "clampaste" Stone, both wonderful friends, and both taken too soon. May our memories of them live on forever.
+

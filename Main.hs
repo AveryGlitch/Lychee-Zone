@@ -8,16 +8,20 @@ import Development.Shake.Util
 indexes :: [FilePath] -> [FilePath]
 indexes = map (\file -> "_site" </> file </> "index.html")
 
+csses :: [FilePath] -> [FilePath]
+csses = map (\file -> "_site" </> file <.> "css")
+
 
 main :: IO ()
 main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
 
-  want (indexes ["", "about", "languages/dapiica", "languages/tava", "doctor-who", "log"])
-  want ["_site/style.css"]
-  want ["_site/dapiica.css"]
-  want ["_site/doctor-who/style.css"]
-  want ["_site/images/marker"]
+  want (indexes ["", "about", "articles", "languages/dapiica", "languages/tava", "doctor-who", "log"])
+  want (csses ["style", "dapiica", "doctor-who/style"])
+  want ["_site/images/marker.txt"]
   want ["_site/archive-2017.zip"]
+
+  phony "push" $ do
+      cmd_ "neocities push _site"
 
   phony "clean" $ do
       putNormal "Cleaning files from _site and _build"
@@ -79,7 +83,7 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
       cmd_ "pandoc --standalone --metadata=title:Log -o" out (reverse builtLogs)
       -- cmd_ "pandoc --file-scope --template" [template] "-o" [out] logs
 
-  "_site/images/marker" %> \out -> do
+  "_site/images/marker.txt" %> \out -> do
       mkdir (takeDirectory out)
       images <- getDirectoryFiles "src/images" ["//*"]
       mapM_ (\img -> copyFile' ("src/images" </> img) (takeDirectory out </> img)) images
@@ -107,10 +111,15 @@ generatePrefix s = generatePrefix' (countLayers s)
 header prefix = "<div id=\"header\">\n"
                 ++ "<div id=navigation>\n"
                 ++ link headerStyle (prefix) "Home"
+                ++ "\n"
+                ++ link headerStyle (prefix ++ "doctor-who") "Doctor&nbsp;Who&nbsp;Guide"
+                ++ "\n"
                 ++ link headerStyle (prefix ++ "languages/dapiica") "Dapiica"
-                ++ link headerStyle (prefix ++ "doctor-who") "Doctor Who Guide"
+                ++ "\n"
                 ++ link headerStyle (prefix ++ "about") "About"
+                ++ "\n"
                 ++ link headerStyle (prefix ++ "log") "Log"
+                ++ "\n"
                 ++ "</div></div>\n"
   where headerStyle = "headerlink"
 
