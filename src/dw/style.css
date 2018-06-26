@@ -2,6 +2,7 @@ body {
     background-color: AntiqueWhite;
 }
 
+
 p.name {
     font-weight: bold;
 }
@@ -112,6 +113,24 @@ hr {
     border: 1px dotted grey;
     padding: 5px;
     margin: 5%;
+}
+
+.return {
+    padding: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+
+.return a {
+    border: 1px dotted grey;
+    padding: 1em;
+    background-color: Bisque;
+}
+
+.return a:hover {
+    color: Bisque;
+    background-color: Purple;
 }
 
 img {

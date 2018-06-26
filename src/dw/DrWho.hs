@@ -107,7 +107,9 @@ output table = preamble +. introduction +. output' table +. outro +. postamble
   where
     output' [] = ""
     output' (Doctor n seasons : rest)
-      = h1 (ordinal n ++ " Doctor") ++ img ("../images/doctor-who/doctor" ++ show n ++ ".png") ("The " ++ ordinal n ++ " Doctor")
+      = "<a name=\"doctor" ++ show n ++ "\"></a>"
+      +. h1 (ordinal n ++ " Doctor") ++ img ("../images/doctor-who/doctor" ++ show n ++ ".png") ("The " ++ ordinal n ++ " Doctor")
+      +. if length rest > 0 then "<span style=\"font-size: small; text-align: right\">" ++ a ("#doctor" ++ show (n + 1)) " ↩ next doctor" ++ "</span>" else ""
       +. tableHeading +. concatMap outputSeason seasons +. "</table>"
       +. output' rest
 
@@ -181,6 +183,15 @@ ordinal n = case n of
               19 -> "Nineteenth"
               _  -> error "I haven't accounted for this many doctors"
 
+toc :: Table -> String
+toc [] = ""
+toc table = h1 "Table of Contents"
+            +. "<ol>" +. toc' table +. "</ol>"
+            +. "<hr>"
+  where
+    toc' [] = ""
+    toc' (Doctor n _ : rest) = li $ a ("#doctor" ++ show n) (ordinal n ++ " Doctor")
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
@@ -218,10 +229,11 @@ run AddStory _ table  = do season <- prompt "Season Number: "
                            note <- prompt "Note: "
                            synopsis <- prompt "Synopsis: "
                            review <- prompt "Review: "
-                           let result = addStory (Story name (read number) (read numEpisodes) (read missing) (read recommendation) (read note) synopsis review) season table
+                           let result = addStory (Story name (read number) (read numEpisodes) (read missing) (read recommendation) (readNote note) synopsis review) season table
                            case result of
                              Just newTable -> do writeOut newTable
                              Nothing       -> print "couldn't add story!"
+
 
 main :: IO ()
 main = do arg <- getArgs
@@ -244,6 +256,11 @@ file, tmpfile, backup :: FilePath
 file = "DrWhoDB"
 tmpfile = "DrWhoDB_tmp"
 backup = "DrWhoDB.bak"
+
+
+readNote :: String -> Maybe Note
+readNote ""   = Nothing
+readNote note = Just note
 
 
 writeOut :: Table -> IO ()
@@ -306,7 +323,8 @@ introduction
     +. p "This guide is currently a work in progress, and only goes as far as I've watched so far. I started watching through the episodes for this guide in early May 2018, and I'm still going strong."
     +. div "dimbox" (
       h3 "Important note"
-      +. p "The early doctor who episodes are <i>excruciatingly</i> slow compared to what we see on modern TV. I won't blame you for skipping the black and white episodes."
+      +. p "The early doctor who episodes are <i>excruciatingly</i> slow compared to what we see on modern TV, so I've judged them less harshly on pacing. <strong>I won't blame you for skipping the black and white episodes</strong>"
+      +. p "I think my ratings for the black and white episodes are also the ones which have generated the most controversy - fans want me to rate more of them higher, average people think I should rate more of them lower."
       )
     +. "<hr>"
 
@@ -323,5 +341,6 @@ outro = "<hr>"
           +. "</ul>"
           +. p ("This guide was not created manually, but was (somewhat) automated with a program I made one afternoon. You can find the source for it " ++  a "https://github.com/AveryGlitch/Doctor-Who-Guide" "on my github")
         )
+        +. div "return" (p $ a "../" "Return Home")
 
 

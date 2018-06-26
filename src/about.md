@@ -27,10 +27,23 @@ title: About
 > and over their journeys they became a 
 > <span class="lychee" title="a storyteller">teller of stories</span>.
 
-<br>
-<div class="heart" />
-<div />
-<br>
+<div class="heart"></div>
 
-> This site is dedicated to Natalie "tipsytentacle" Nguyen and Lydia "clampaste" Stone, both wonderful friends, and both taken too soon. May our memories of them live on forever.
+> ## Contact
 
+> You can contact me in a number of ways: \
+> <table>
+> <tr> <td>**Twitter:**</td><td> [\@lizardsquidish](https://twitter.com/lizardsquidish) </td></tr>
+> <tr> <td>**Fediverse:**</td><td> [\@lizardsquid@computerfairi.es](https://computerfairi.es/@lizardsquid) </td></tr>
+> <tr> <td>**Email:**</td><td> [averyl (at) protonmail (dot) com]() </td></tr>
+> </table>
+
+<div class="heart"></div>
+
+> *This site is dedicated to Natalie "tipsytentacle" Nguyen and Lydia "clampaste" Stone, both wonderful friends, and both taken too soon. May our memories of them live on forever.*
+
+<div class="heart"></div>
+
+<div class="license">
+*Everything on this site is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a> - feel free to share, modify, and re-distribute.*
+</div>

@@ -26,8 +26,8 @@ div#header #navigation a:hover {
 }
 
 blockquote a:hover {
-    color: Thistle;
-    background-color: Teal;
+    background-color: Thistle;
+    color: Teal;
 }
 
 blockquote a {
@@ -35,8 +35,7 @@ blockquote a {
     padding-right: 1px;
     border-radius: 3px;
     color: Teal;
-    background-color: thistle;
-    text-decoration: none;
+    background-color: rgba(255,255,255,0.3);
 }
 
 body {
@@ -44,7 +43,11 @@ body {
 }
 
 p {
-    color: LightGoldenRodYellow; /* MistyRose; -> LightYellow; -> LightGoldenRodYellow; LightCyan; LemonChiffon; Ivory; -> HoneyDew; GreenYellow; Gold; -> GhostWhite; Gainsboro; FloralWhite; DarkTurquoise; /* Aquamarine;  -> Cornsilk;*/
+    color: Bisque; /* MistyRose; -> LightYellow; -> LightGoldenRodYellow; LightCyan; LemonChiffon; Ivory; -> HoneyDew; GreenYellow; Gold; -> GhostWhite; Gainsboro; FloralWhite; DarkTurquoise; /* Aquamarine;  -> Cornsilk;*/
+}
+
+a {
+    color: lightgrey;
 }
 
 h1 {
@@ -92,7 +95,8 @@ div.log-body p {
 }
 
 div.article {
-    margin-left: 5%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: Thistle;
     padding: 1em;
     max-width: 750px;
@@ -182,6 +186,8 @@ div.heart {
     text-align: center;
     height: 9px;
     border-bottom: 3px double Black;
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 div.heart:after {
@@ -194,3 +200,8 @@ div.heart:after {
     font-size: 18px;
 }
 
+.license {
+    text-align: right;
+    margin-left: 20%;
+    font-size: small;
+}

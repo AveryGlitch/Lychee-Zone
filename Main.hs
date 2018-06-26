@@ -18,7 +18,6 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
   want (indexes ["", "about", "articles", "languages/dapiica", "languages/tava", "doctor-who", "log"])
   want (csses ["style", "dapiica", "doctor-who/style"])
   want ["_site/images/marker.txt"]
-  want ["_site/archive-2017.zip"]
 
   phony "push" $ do
       cmd_ "neocities push _site"
