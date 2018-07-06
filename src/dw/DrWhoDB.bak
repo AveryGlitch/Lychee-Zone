@@ -1,0 +1,15 @@
+- doctorNum: 1
+  seasons:
+  - stories:
+    - numEpisodes: 4
+      reccomendation: Partial
+      note: only episode 1
+      missing:
+        tag: None
+      name: An Unearthly Child
+      synopsis: Two schoolteachers, Barbara and Ian, follow one of their students
+        (Susan) home, only to discover a strange policebox in a junkyard...
+      review: The last 3 episodes of this story are dry and difficult to watch. They
+        have several repeated scenes, and the plot is not very interesting
+      number: 1
+    seasonNum: '1'

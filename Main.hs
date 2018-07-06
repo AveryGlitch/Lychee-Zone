@@ -34,7 +34,7 @@ main = shakeArgs shakeOptions{shakeFiles="_build"} $ do
                 let code = "src/dw/DrWho.hs"
                 need [db, code]
                 mkdir (takeDirectory out)
-                command_ [Cwd "src/dw"] "runhaskell" ["DrWho.hs", "output", "../../" ++ out]
+                command_ [Cwd "src/dw"] "cabal" ["run", "output", "../../" ++ out]
         _
           -> do let src = case getMiddle out of
                             "" -> "src/index.md"

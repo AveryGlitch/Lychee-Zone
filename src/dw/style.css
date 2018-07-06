@@ -10,6 +10,7 @@ p.name {
 p.name-missing {
     font-weight: bold;
     font-style: italic;
+    margin-bottom: 0.5em;
 }
 th {
 	  background-color: dimgray;
@@ -33,6 +34,19 @@ table, tr, td {
     min-width: 100px;
 }
 
+.reconstruction {
+    font-weight: bold;
+    font-size: x-small;
+    background-color: Thistle;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+td.name-missing {
+    background-color: Thistle;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+}
 
 tr:nth-child(odd) {
     background-color: #E8E8E8;
@@ -41,6 +55,15 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     background-color: #C0C0C0;
 }
+
+tr:nth-child(odd) table.recc td {
+    background-color: #E8E8E8;
+}
+
+tr:nth-child(even) table.recc td {
+    background-color: #C0C0C0;
+}
+
 
 tr.info {
     background-color: white;

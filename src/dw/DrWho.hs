@@ -1,9 +1,15 @@
 {-# LANGUAGE LambdaCase #-}
-module Main where
+{-# LANGUAGE DeriveGeneric #-}
+module DrWho where
 
 import System.Environment (getArgs)
 import System.Directory (renameFile)
 import Prelude hiding (div)
+import qualified Data.Yaml as Yaml
+import qualified Data.ByteString as ByteString
+import GHC.Generics
+import System.IO (hSetBuffering, stdin, stdout, BufferMode (..))
+
 
 -- First some types to make signatures more readable
 type Name = String
@@ -16,22 +22,50 @@ type DoctorNum = Int
 type SeasonNum = String
 
 
-
 -- Our Table is just a list of Doctors...
 type Table  = [Doctor]
 -- A Doctor is just a number and a list of seasons...
-data Doctor = Doctor DoctorNum [Season] deriving (Show, Read)
+data Doctor = Doctor
+  {
+    doctorNum :: DoctorNum
+  , seasons   :: [Season]
+  } deriving (Generic, Show, Read)
 -- A Season is just a season number* and a list of stories
-data Season = Season SeasonNum [Story] deriving (Show, Read)
+data Season = Season
+  {
+    seasonNum :: SeasonNum
+  , stories   :: [Story]
+  } deriving (Generic, Show, Read)
 -- A story contains a bunch of info!
-data Story  = Story Name Number NumEpisodes Missing Recommendation (Maybe Note) Synopsis Review deriving (Show, Read)
+data Story  = Story
+  {
+    name           :: Name
+  , number         :: Number
+  , numEpisodes    :: NumEpisodes
+  , missing        :: Missing
+  , reccomendation :: Recommendation
+  , note           :: (Maybe Note)
+  , synopsis       :: Synopsis
+  , review         :: Review
+} deriving (Generic, Show, Read)
 -- A story is either missing no episodes, all episodes, or some specific episodes
 data Missing = None
              | All
-             | Some [Int] deriving (Show, Read, Eq)
+             | Some [Int] deriving (Generic, Show, Read, Eq)
 -- Our recommendations
-data Recommendation = Highly | Yes | Maybe | Partial | No deriving (Show, Read)
+data Recommendation = Highly | Yes | Maybe | Partial | No deriving (Generic, Show, Read)
 
+instance Yaml.ToJSON Doctor
+instance Yaml.ToJSON Season
+instance Yaml.ToJSON Story
+instance Yaml.ToJSON Missing
+instance Yaml.ToJSON Recommendation
+
+instance Yaml.FromJSON Doctor
+instance Yaml.FromJSON Season
+instance Yaml.FromJSON Story
+instance Yaml.FromJSON Missing
+instance Yaml.FromJSON Recommendation
 
 
 -- an empty table.
@@ -121,10 +155,11 @@ outputSeason (Season num stories)
 outputStory :: Story -> String
 outputStory (Story name number numEps missing recc note synopsis review)
   = tr' "name"
-    (td
+    (td' (if missing == None then "name" else "name-missing")
         ("<p class="
          ++ (if missing == None then "name" else "name-missing")
          ++ ">" ++ name ++ "</p>"
+         ++ (if missing /= None then div "reconstruction" "Reconstruction" else "")
          +. "<table>"
          +. tr' "info" (td "Story Number" ++ td (show number))
          +. tr' "info" (td "Number of Episodes" ++ td (show numEps))
@@ -136,15 +171,15 @@ outputStory (Story name number numEps missing recc note synopsis review)
     +. td (div (show recc)
             (
               (case recc of
-                 Highly -> "✨ Highly Recommended ✨"
-                 Yes    -> "Watch"
-                 Maybe  -> "Maybe"
-                 Partial-> "Partial watch"
-                 No     -> "Don't watch"
+                  Highly -> "✨ Highly Recommended ✨"
+                  Yes    -> "Watch"
+                  Maybe  -> "Maybe"
+                  Partial-> "Partial watch"
+                  No     -> "Don't watch"
               )
               ++ (case note of
-                    Just text -> ", " ++ text
-                    Nothing   -> ""
+                     Just text -> ", " ++ text
+                     Nothing   -> ""
                  )
             )
           )
@@ -235,16 +270,19 @@ run AddStory _ table  = do season <- prompt "Season Number: "
                              Nothing       -> print "couldn't add story!"
 
 
-main :: IO ()
-main = do arg <- getArgs
-          fileContent <- readFile file
-          pure (read fileContent) >>= case arg of
-            ["output"]        -> run Output Nothing
-            ["output", outputFile]   -> run Output (Just outputFile)
-            ["add", "doctor"] -> run AddDoctor Nothing
-            ["add", "season"] -> run AddSeason Nothing
-            ["add", "story"]  -> run AddStory Nothing
-            _                 -> run Usage Nothing
+realMain :: IO ()
+realMain = do arg <- getArgs
+              hSetBuffering stdin NoBuffering
+              hSetBuffering stdout NoBuffering
+              fileContent <- ByteString.readFile file
+              let Just table = Yaml.decode fileContent
+              case arg of
+                ["output"]             -> run Output Nothing table
+                ["output", outputFile] -> run Output (Just outputFile) table
+                ["add", "doctor"]      -> run AddDoctor Nothing table
+                ["add", "season"]      -> run AddSeason Nothing table
+                ["add", "story"]       -> run AddStory Nothing table
+                _                      -> run Usage Nothing table
 
 
 
@@ -264,7 +302,7 @@ readNote note = Just note
 
 
 writeOut :: Table -> IO ()
-writeOut table = do writeFile tmpfile (show table)
+writeOut table = do ByteString.writeFile tmpfile (Yaml.encode table)
                     renameFile file backup
                     renameFile tmpfile file
 
@@ -304,7 +342,7 @@ introduction :: String
 introduction
   = h1 "Avery's Doctor Who Guide"
     +. p "So, you want to watch Doctor Who, through the classic and modern era, but you're not so sure on how much to watch? You've come to the right place! This guide has several different tracks, depending on what you're interested in"
-    +. "<table>"
+
     +. concatMap (tr' "intro")
     [
       (td' "Highly" "Fast Track"

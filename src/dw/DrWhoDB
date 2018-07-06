@@ -1,1 +1,254 @@
-[Doctor 1 [Season "1" [Story "An Unearthly Child" 1 4 None Partial (Just "only episode 1") "Two schoolteachers, Barbara and Ian, follow one of their students (Susan) home, only to discover a strange policebox in a junkyard..." "The last 3 episodes of this story are dry and difficult to watch. They have several repeated scenes, and the plot is not very interesting",Story "The Daleks" 2 7 None No (Just "this story is incredibly slow paced, so I can't recommend it, unless you really want to watch the origin of the daleks.") "The Tardis crew land on the alien jungle planet Skaro, and are captured by a mutated race of people known as The Daleks" "The main cast is fleshed out a lot in this story, and there is a lot of tension. But the pace is excruciatingly slow.",Story "The Edge of Destruction" 3 2 None Maybe Nothing "Something is wrong with the Tardis, and it seems like one of the crew has sabotaged the ship..." "Very tense and mysterious episodes - however the second episode drags on a bit, and plot contrivances force everyone to act out of character",Story "Marco Polo" 4 7 All Maybe (Just "if you're ok with a reconstruction") "The travellers arive in China and meet Marco Polo. He coerces them into joining his caravan, and they end up embroiled in political intrigue in the far east..." "One of the first historical stories, and it works really well as a contrast to the stories around it. The villains are more complex and the problems they face are more personal. Not much action - which means the lack of video isn't a problem.",Story "The Keys of Marinus" 5 6 None Highly Nothing "The Tardis crew must travel all across the planet of Marinus to find the keys to the AI that runs their society..." "This is a big story, divided into several little ones - a format that works very very well, and mitigates a lot of the pacing issues the early seasons had. However the script was rushed, and you can tell.",Story "The Aztecs" 6 4 None Yes Nothing "Barbara is mistaken as an Aztec God, and attempts to use this mistake to end the human sacrifices of the Aztecs, despite the Doctor's warnings about changing history..." "The Aztecs is a \"historical\" story, but it's such an innacurate view of the situation that it can hardly be called that at all. However, it is a very interesting plot.",Story "The Sensorites" 7 6 None Maybe (Just "it is very interesting, but also very slow.") "The sensorites is an interesting idea..... but it's very slow. I remember enjoying it as a child, but now? I can't really recommend it to everyone" "The Tardis lands on a ship, trapped in orbit around a planet of Psychic aliens known as the Sensorites",Story "The Reign of Terror" 8 6 (Some [4,5]) Yes (Just "but note there are missing episodes, which makes it harder to get through") "The Doctor decides to take Barbara and Ian home... but accidentally lands them all in the middle of the Reign of Terror, and they instead have to try not to lose their heads..." "Surprisingly accurate and interesting. The 2 episodes which are missing footage are a slog to get through - without the motion, the pacing is more obviously slow"],Season "2" [Story "The Planet of Giants" 9 3 None Yes Nothing "The travellers find themselves on a planet much like Earth, but many times larger" "Entertaining and fun, and a good start to the second season - although some of the actors give rather stilted performances",Story "The Dalek Invasion of Earth" 10 6 None Maybe (Just "it's good, just be warned of the usual slowness") "The tardis crew land in a mysteriously abandoned london\8230 and discover that the daleks have invaded earth" "This story is very important and very good, but at the same time the pacing is still incredibly slow. Definitely more worth a watch than many of the other early stories, which is why it gets a Watch recommendation",Story "The Rescue" 11 2 None Highly Nothing "The two survivors of a spaceship crash are held in captivity by a mysterious alien" "Very short, and quite interesting. It introduces a new regular cast member, and does so quite well!",Story "The Romans" 12 4 None Highly Nothing "The TARDIS crashes in Ancient Rome, The Doctor impersonates a Lyre player, and Barbara and Ian are kidnapped and sold as slaves..." "Very, very good! And notable for using quite a lot of humour, which makes it stand out from the episodes around it",Story "The Web Planet" 13 6 None No Nothing "The TARDIS is pulled down to the insect planet of Vortis, where they struggle to help it's former inhabitants reclaim the planet from the malignant Animus" "This story is incredibly dull, and full of obnoxious and annoying sounds. It's a shame - the concept is good, and they clearly put a lot of effort into making an alien planet with the sets and costumes.",Story "The Crusade" 14 4 (Some [2,4]) Yes (Just "despite the reconstructions") "The Tardis Crew find themselves embroiled in a conflict between Richard the Third and Saladin" "Exceptional quality, with some incredibly good acting. The two reconstructed episodes are, of course, harder to watch, but the other episodes in this story make up for it in spades.",Story "The Space Museum" 15 4 None Yes Nothing "The TARDIS is knocked slightly out of sync with time, and the crew have to fight against the clock to avoid a horrible fate" "An all-round decent story",Story "The Chase" 16 6 None Yes Nothing "The TARDIS crew travel to a various locations as they are chased through time and space by the daleks" "An important story, that is told well",Story "The Time Meddler" 17 4 None Maybe (Just "it's a very interesting story, but not a very exciting one") "The TARDIS lands in 1066, but Steven doesn't believe it, and several anachronistic artifacts abound..." "I like this story, but I'm not sure I could recommend it to a modern viewer"],Season "3" [Story "Galaxy 4" 18 4 (Some [1,2,4]) Maybe (Just "this story is missing a lot of footage. The reconstruction is well done, but it can be hard to sit through.") "The TARDIS crew land on a planet on the brink of destruction, with two marooned species trying to escape it" "[Note: this story contains more sexism than is usual] It's passable, nothing to really write home about. The Loose Cannons reconstruction works well, especially considering how little surviving footage they had to work with.",Story "Mission to the Impossible" 19 1 All Yes (Just "if you're willing to watch a reconstruction") "A Space Security Agent Attempts to warn Earth of the dalek's latest plan" "This episode is very unique, because it does not feature the doctor or any companions at all. It's  worth a watch, just for the sheer uniqueness of it."]]]
+- doctorNum: 1
+  seasons:
+  - stories:
+    - numEpisodes: 4
+      reccomendation: Partial
+      note: only episode 1
+      missing:
+        tag: None
+      name: An Unearthly Child
+      synopsis: Two schoolteachers, Barbara and Ian, follow one of their students
+        (Susan) home, only to discover a strange policebox in a junkyard...
+      review: The last 3 episodes of this story are dry and difficult to watch. They
+        have several repeated scenes, and the plot is not very interesting
+      number: 1
+    - numEpisodes: 7
+      reccomendation: 'No'
+      note: this story is incredibly slow paced, so I can't recommend it, unless you
+        really want to watch the origin of the daleks.
+      missing:
+        tag: None
+      name: The Daleks
+      synopsis: The Tardis crew land on the alien jungle planet Skaro, and are captured
+        by a mutated race of people known as The Daleks
+      review: The main cast is fleshed out a lot in this story, and there is a lot
+        of tension. But the pace is excruciatingly slow.
+      number: 2
+    - numEpisodes: 2
+      reccomendation: Maybe
+      note: null
+      missing:
+        tag: None
+      name: The Edge of Destruction
+      synopsis: Something is wrong with the Tardis, and it seems like one of the crew
+        has sabotaged the ship...
+      review: Very tense and mysterious episodes - however the second episode drags
+        on a bit, and plot contrivances force everyone to act out of character
+      number: 3
+    - numEpisodes: 7
+      reccomendation: Maybe
+      note: if you're ok with a reconstruction
+      missing:
+        tag: All
+      name: Marco Polo
+      synopsis: The travellers arive in China and meet Marco Polo. He coerces them
+        into joining his caravan, and they end up embroiled in political intrigue
+        in the far east...
+      review: One of the first historical stories, and it works really well as a contrast
+        to the stories around it. The villains are more complex and the problems they
+        face are more personal. Not much action - which means the lack of video isn't
+        a problem.
+      number: 4
+    - numEpisodes: 6
+      reccomendation: Highly
+      note: null
+      missing:
+        tag: None
+      name: The Keys of Marinus
+      synopsis: The Tardis crew must travel all across the planet of Marinus to find
+        the keys to the AI that runs their society...
+      review: This is a big story, divided into several little ones - a format that
+        works very very well, and mitigates a lot of the pacing issues the early seasons
+        had. However the script was rushed, and you can tell.
+      number: 5
+    - numEpisodes: 4
+      reccomendation: 'Yes'
+      note: null
+      missing:
+        tag: None
+      name: The Aztecs
+      synopsis: Barbara is mistaken as an Aztec God, and attempts to use this mistake
+        to end the human sacrifices of the Aztecs, despite the Doctor's warnings about
+        changing history...
+      review: The Aztecs is a "historical" story, but it's such an innacurate view
+        of the situation that it can hardly be called that at all. However, it is
+        a very interesting plot.
+      number: 6
+    - numEpisodes: 6
+      reccomendation: Maybe
+      note: it is very interesting, but also very slow.
+      missing:
+        tag: None
+      name: The Sensorites
+      synopsis: The sensorites is an interesting idea..... but it's very slow. I remember
+        enjoying it as a child, but now? I can't really recommend it to everyone
+      review: The Tardis lands on a ship, trapped in orbit around a planet of Psychic
+        aliens known as the Sensorites
+      number: 7
+    - numEpisodes: 6
+      reccomendation: 'Yes'
+      note: but note there are missing episodes, which makes it harder to get through
+      missing:
+        tag: Some
+        contents:
+        - 4
+        - 5
+      name: The Reign of Terror
+      synopsis: The Doctor decides to take Barbara and Ian home... but accidentally
+        lands them all in the middle of the Reign of Terror, and they instead have
+        to try not to lose their heads...
+      review: Surprisingly accurate and interesting. The 2 episodes which are missing
+        footage are a slog to get through - without the motion, the pacing is more
+        obviously slow
+      number: 8
+    seasonNum: '1'
+  - stories:
+    - numEpisodes: 3
+      reccomendation: 'Yes'
+      note: null
+      missing:
+        tag: None
+      name: The Planet of Giants
+      synopsis: The travellers find themselves on a planet much like Earth, but many
+        times larger
+      review: Entertaining and fun, and a good start to the second season - although
+        some of the actors give rather stilted performances
+      number: 9
+    - numEpisodes: 6
+      reccomendation: Maybe
+      note: it's good, just be warned of the usual slowness
+      missing:
+        tag: None
+      name: The Dalek Invasion of Earth
+      synopsis: The tardis crew land in a mysteriously abandoned london… and discover
+        that the daleks have invaded earth
+      review: This story is very important and very good, but at the same time the
+        pacing is still incredibly slow. Definitely more worth a watch than many of
+        the other early stories, which is why it gets a Watch recommendation
+      number: 10
+    - numEpisodes: 2
+      reccomendation: Highly
+      note: null
+      missing:
+        tag: None
+      name: The Rescue
+      synopsis: The two survivors of a spaceship crash are held in captivity by a
+        mysterious alien
+      review: Very short, and quite interesting. It introduces a new regular cast
+        member, and does so quite well!
+      number: 11
+    - numEpisodes: 4
+      reccomendation: Highly
+      note: null
+      missing:
+        tag: None
+      name: The Romans
+      synopsis: The TARDIS crashes in Ancient Rome, The Doctor impersonates a Lyre
+        player, and Barbara and Ian are kidnapped and sold as slaves...
+      review: Very, very good! And notable for using quite a lot of humour, which
+        makes it stand out from the episodes around it
+      number: 12
+    - numEpisodes: 6
+      reccomendation: 'No'
+      note: null
+      missing:
+        tag: None
+      name: The Web Planet
+      synopsis: The TARDIS is pulled down to the insect planet of Vortis, where they
+        struggle to help it's former inhabitants reclaim the planet from the malignant
+        Animus
+      review: This story is incredibly dull, and full of obnoxious and annoying sounds.
+        It's a shame - the concept is good, and they clearly put a lot of effort into
+        making an alien planet with the sets and costumes.
+      number: 13
+    - numEpisodes: 4
+      reccomendation: 'Yes'
+      note: despite the reconstructions
+      missing:
+        tag: Some
+        contents:
+        - 2
+        - 4
+      name: The Crusade
+      synopsis: The Tardis Crew find themselves embroiled in a conflict between Richard
+        the Third and Saladin
+      review: Exceptional quality, with some incredibly good acting. The two reconstructed
+        episodes are, of course, harder to watch, but the other episodes in this story
+        make up for it in spades.
+      number: 14
+    - numEpisodes: 4
+      reccomendation: 'Yes'
+      note: null
+      missing:
+        tag: None
+      name: The Space Museum
+      synopsis: The TARDIS is knocked slightly out of sync with time, and the crew
+        have to fight against the clock to avoid a horrible fate
+      review: An all-round decent story
+      number: 15
+    - numEpisodes: 6
+      reccomendation: 'Yes'
+      note: null
+      missing:
+        tag: None
+      name: The Chase
+      synopsis: The TARDIS crew travel to a various locations as they are chased through
+        time and space by the daleks
+      review: An important story, that is told well
+      number: 16
+    - numEpisodes: 4
+      reccomendation: Maybe
+      note: it's a very interesting story, but not a very exciting one
+      missing:
+        tag: None
+      name: The Time Meddler
+      synopsis: The TARDIS lands in 1066, but Steven doesn't believe it, and several
+        anachronistic artifacts abound...
+      review: I like this story, but I'm not sure I could recommend it to a modern
+        viewer
+      number: 17
+    seasonNum: '2'
+  - stories:
+    - numEpisodes: 4
+      reccomendation: Maybe
+      note: this story is missing a lot of footage. The reconstruction is well done,
+        but it can be hard to sit through.
+      missing:
+        tag: Some
+        contents:
+        - 1
+        - 2
+        - 4
+      name: Galaxy 4
+      synopsis: The TARDIS crew land on a planet on the brink of destruction, with
+        two marooned species trying to escape it
+      review: ! '[Note: this story contains more sexism than is usual] It''s passable,
+        nothing to really write home about. The Loose Cannons reconstruction works
+        well, especially considering how little surviving footage they had to work
+        with.'
+      number: 18
+    - numEpisodes: 1
+      reccomendation: 'Yes'
+      note: if you're willing to watch a reconstruction
+      missing:
+        tag: All
+      name: Mission to the Impossible
+      synopsis: A Space Security Agent Attempts to warn Earth of the dalek's latest
+        plan
+      review: This episode is very unique, because it does not feature the doctor
+        or any companions at all. It's  worth a watch, just for the sheer uniqueness
+        of it.
+      number: 19
+    - numEpisodes: 4
+      reccomendation: 'No'
+      note: null
+      missing:
+        tag: All
+      name: The Myth Makers
+      synopsis: The Doctor and companions find themselves in the battle for ancient
+        troy... and accidentally make the myth of the trojan horse come true.
+      review: A silly concept, with poor execution - the trojans are portrayed as
+        unbelievably dense, and then Vicki falls for one and runs off with him. I
+        had trouble suspending my disbelief for this one.
+      number: 20
+    seasonNum: '3'
