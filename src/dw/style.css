@@ -37,15 +37,15 @@ table, tr, td {
 .reconstruction {
     font-weight: bold;
     font-size: x-small;
-    background-color: Thistle;
+    background-color: inherit;
     padding-top: 0;
     margin-top: 0;
     margin-bottom: 1em;
 }
 td.name-missing {
     background-color: Thistle;
-    border-top: 1px dotted black;
-    border-bottom: 1px dotted black;
+    /* border-top: 0.1em dotted black; */
+    /* border-bottom: 0.1em dotted black; */
 }
 
 tr:nth-child(odd) {
@@ -56,12 +56,12 @@ tr:nth-child(even) {
     background-color: #C0C0C0;
 }
 
-tr:nth-child(odd) table.recc td {
-    background-color: #E8E8E8;
+tr:nth-child(odd) td.name-missing {
+    background-color: #ecdfec;
 }
 
-tr:nth-child(even) table.recc td {
-    background-color: #C0C0C0;
+tr:nth-child(even) td.name-missing {
+    background-color: #d8bfd8;
 }
 
 

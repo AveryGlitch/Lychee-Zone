@@ -342,7 +342,7 @@ introduction :: String
 introduction
   = h1 "Avery's Doctor Who Guide"
     +. p "So, you want to watch Doctor Who, through the classic and modern era, but you're not so sure on how much to watch? You've come to the right place! This guide has several different tracks, depending on what you're interested in"
-
+    +. "<table>"
     +. concatMap (tr' "intro")
     [
       (td' "Highly" "Fast Track"
