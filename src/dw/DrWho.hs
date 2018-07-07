@@ -377,7 +377,7 @@ outro = "<hr>"
           +. li (a "https://wandering.shop/@DialMForMara" "@DialMForMara@wandering.shop" ++ " for convincing me to review the reconstructions as well")
           +. li "And a bunch of others on the fediverse for helping me make the colourscheme in this document less garish."
           +. "</ul>"
-          +. p ("This guide was not created manually, but was (somewhat) automated with a program I made one afternoon. You can find the source for it " ++  a "https://github.com/AveryGlitch/Doctor-Who-Guide" "on my github")
+          +. p ("This guide was not created manually, but was (somewhat) automated with a program I made one afternoon. You can find the source for it " ++  a "https://notabug.org/AveryLychee/Doctor-Who-Guide" "on NotABug")
         )
         +. div "return" (p $ a "../" "Return Home")
 

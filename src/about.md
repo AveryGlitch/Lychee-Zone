@@ -45,5 +45,6 @@ title: About
 <div class="heart"></div>
 
 <div class="license">
-*Everything on this site is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a> - feel free to share, modify, and re-distribute.*
+*Everything on this site is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a> - feel free to share, modify, and re-distribute.* \
+*The files that were used to generate this site can be found [here](https://notabug.org/AveryLychee/Lychee-Zone)*
 </div>
