@@ -275,7 +275,7 @@ realMain = do arg <- getArgs
               hSetBuffering stdin NoBuffering
               hSetBuffering stdout NoBuffering
               fileContent <- ByteString.readFile file
-              let Just table = Yaml.decode fileContent
+              Just table <- Yaml.decodeThrow fileContent
               case arg of
                 ["output"]             -> run Output Nothing table
                 ["output", outputFile] -> run Output (Just outputFile) table
@@ -297,8 +297,8 @@ backup = "DrWhoDB.bak"
 
 
 readNote :: String -> Maybe Note
-readNote ""   = Nothing
-readNote note = Just note
+readNote "" = Nothing
+readNote n  = Just n
 
 
 writeOut :: Table -> IO ()

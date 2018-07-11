@@ -250,4 +250,24 @@
         unbelievably dense, and then Vicki falls for one and runs off with him. I
         had trouble suspending my disbelief for this one.
       number: 20
+    - numEpisodes: 12
+      reccomendation: 'Partial'
+      note: don't watch episode 7 ("The Feast of Steven"). (Note - this story
+        contains an actor in yellowface)
+      missing:
+        tag: Some
+        contents:
+        - 1
+        - 3
+        - 4
+        - 6
+        - 7
+        - 8
+        - 9
+        - 11
+        - 12
+      name: The Daleks Master Plan
+      synopsis: Mavic Chen, the guardian of the solar system, is hatching a plan with the daleks that will allow them to take over the universe with a device known as The Time Destructor
+      review: ! "One of the darkest and most violent stories in the early show, and it is incredibly engaging... with the exception of the 7th episode, which was scheduled to be broadcast on Christmas Day. It doesn't tie in to the actual plot, and is basically just a farcical interlude"
+      number: 21
     seasonNum: '3'
